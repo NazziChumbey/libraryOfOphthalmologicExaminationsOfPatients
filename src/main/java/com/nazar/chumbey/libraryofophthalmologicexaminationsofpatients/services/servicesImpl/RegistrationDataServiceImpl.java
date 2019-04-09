@@ -1,0 +1,6 @@
+package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.services.servicesImpl;
+
+import com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.services.RegistrationDataService;
+
+public class RegistrationDataServiceImpl implements RegistrationDataService {
+}

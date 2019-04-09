@@ -8,19 +8,9 @@ import java.sql.Date;
 
 @Data
 @Entity
-public class Workers extends BaseEntity{
+public class Workers {
 
-    public Workers(Long id,String name, Date dateOfBirth, String institution, String position, String telephone, String eMail, String accessDatabaseType, String accountStatus) {
-        super.setId(id);
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.institution = institution;
-        this.position = position;
-        this.telephone = telephone;
-        this.eMail = eMail;
-        this.accessDatabaseType = accessDatabaseType;
-        this.accountStatus = accountStatus;
-    }
+    private int id;
 
     private String name;
 

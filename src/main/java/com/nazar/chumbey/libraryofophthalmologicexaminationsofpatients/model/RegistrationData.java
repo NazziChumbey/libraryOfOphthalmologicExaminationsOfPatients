@@ -6,13 +6,9 @@ import javax.persistence.Entity;
 
 @Data
 @Entity
-public class RegistrationData extends BaseEntity{
+public class RegistrationData{
 
-    public RegistrationData(Long id ,String login, String password) {
-        super.setId(id);
-        this.login = login;
-        this.password = password;
-    }
+    private int id;
 
     private String login;
 

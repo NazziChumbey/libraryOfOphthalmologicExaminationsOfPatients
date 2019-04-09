@@ -7,7 +7,8 @@ import java.sql.Date;
 
 @Data
 @Entity
-public class Patient extends BaseEntity {
+public class Patient {
+    private int id;
 
     private String name;
 
