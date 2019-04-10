@@ -8,13 +8,14 @@ import java.sql.Date;
 @Data
 @Entity
 public class Patient {
+
     private int id;
 
     private String name;
 
     private int sex;
 
-    private String numberTelephone;
+    private String telephone;
 
     private Date dateOfBirth;
 

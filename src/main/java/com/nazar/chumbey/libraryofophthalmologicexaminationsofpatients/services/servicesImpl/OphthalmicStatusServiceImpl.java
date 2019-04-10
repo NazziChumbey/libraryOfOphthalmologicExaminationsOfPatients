@@ -1,6 +1,0 @@
-package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.services.servicesImpl;
-
-import com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.services.OphthalmicStatusService;
-
-public class OphthalmicStatusServiceImpl implements OphthalmicStatusService {
-}
