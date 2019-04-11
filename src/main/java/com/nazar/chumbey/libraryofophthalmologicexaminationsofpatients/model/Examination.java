@@ -3,19 +3,18 @@ package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.sql.Blob;
 import java.sql.Date;
+import java.util.Set;
 
 @Data
 @Entity
 public class Examination {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    private int patient_id;
-
-    private int workers_id;
 
     private Date dateOfSurvey;
 
@@ -211,4 +210,14 @@ public class Examination {
 
     private String formatFile_fieldView_OU;
 
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
+    @ManyToOne
+    @JoinColumn(name = "workers_id")
+    private Workers worker;
+
+    @OneToMany(mappedBy = "examination")
+    private Set<Treatment> treatments;
 }

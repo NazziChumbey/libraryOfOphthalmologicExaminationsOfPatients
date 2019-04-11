@@ -2,14 +2,19 @@ package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.Set;
 
 @Data
 @Entity
 public class Patient {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    private String additionalInfo;
 
     private String name;
 
@@ -35,8 +40,10 @@ public class Patient {
 
     private String apartment;
 
-    private String additional_information;
+    @OneToMany(mappedBy = "patient")
+    private Set<Examination> examinations;
 
-    private Long workers_id;
-
+    @ManyToOne
+    @JoinColumn(name="workers_id")
+    private Workers worker;
 }

@@ -3,13 +3,15 @@ package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Data
 @Entity
 public class Treatment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private Date dateOfTreatment;
@@ -77,4 +79,7 @@ public class Treatment {
 
     private String infoTextArea;
 
+    @ManyToOne
+    @JoinColumn(name = "examination_id")
+    private Examination examination;
 }
