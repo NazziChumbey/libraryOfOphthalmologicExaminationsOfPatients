@@ -1,4 +1,7 @@
 package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.services;
 
-public interface RegistrationDataService {
+import com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model.RegistrationData;
+
+public interface RegistrationDataService extends GrudService<RegistrationData, Integer> {
+
 }

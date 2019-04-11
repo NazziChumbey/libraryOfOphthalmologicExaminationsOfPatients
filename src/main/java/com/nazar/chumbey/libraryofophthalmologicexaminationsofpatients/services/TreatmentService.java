@@ -1,4 +1,7 @@
 package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.services;
 
-public interface TreatmentService {
+import com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model.Treatment;
+
+public interface TreatmentService extends GrudService<Treatment, Integer> {
+
 }

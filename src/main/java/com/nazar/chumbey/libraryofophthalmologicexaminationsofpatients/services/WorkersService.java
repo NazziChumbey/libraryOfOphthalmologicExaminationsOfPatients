@@ -1,4 +1,7 @@
 package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.services;
 
-public interface WorkersService {
+import com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model.Workers;
+
+public interface WorkersService extends GrudService<Workers, Integer> {
+
 }
