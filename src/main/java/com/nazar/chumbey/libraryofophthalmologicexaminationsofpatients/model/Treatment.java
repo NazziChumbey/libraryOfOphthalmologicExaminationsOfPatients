@@ -1,12 +1,18 @@
 package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model;
 
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
 
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Treatment {
 
@@ -14,6 +20,11 @@ public class Treatment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @ManyToOne
+    @JoinColumn(name = "examination_id")
+    private Examination examination;
+
+    @Column(nullable = false)
     private Date dateOfTreatment;
 
     private int myotics;
@@ -79,7 +90,4 @@ public class Treatment {
 
     private String infoTextArea;
 
-    @ManyToOne
-    @JoinColumn(name = "examination_id")
-    private Examination examination;
 }

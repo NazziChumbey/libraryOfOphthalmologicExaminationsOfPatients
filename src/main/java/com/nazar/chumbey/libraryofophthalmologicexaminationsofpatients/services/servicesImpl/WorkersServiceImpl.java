@@ -50,4 +50,9 @@ public class WorkersServiceImpl implements WorkersService {
     public void deleteById(Integer id) {
         workersRepositories.deleteById(id);
     }
+
+    @Override
+    public Workers findWorkerPatient(int id, int patientID) {
+        return workersRepositories.findByIdAndPatients_id(id,patientID);
+    }
 }

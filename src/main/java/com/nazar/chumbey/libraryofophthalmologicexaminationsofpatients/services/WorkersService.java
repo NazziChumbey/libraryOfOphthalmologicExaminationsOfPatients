@@ -4,4 +4,6 @@ import com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model.Wor
 
 public interface WorkersService extends GrudService<Workers, Integer> {
 
+    Workers findWorkerPatient(int id, int patientID);
+
 }
