@@ -1,16 +1,13 @@
 package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Date;
 
-@Setter
-@Getter
+@Setter @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -20,43 +17,38 @@ public class Treatment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "examination_id")
-    private Examination examination;
-
     @Column(nullable = false)
     private Date dateOfTreatment;
 
-    private int myotics;
+    private Integer myotics;
 
-    private int betaBlockers;
+    private Integer betaBlockers;
 
-    private int prostaglandins;
+    private Integer prostaglandins;
 
-    private int pbInjection;
+    private Integer pbInjection;
 
-    private int bbInjection;
+    private Integer bbInjection;
 
-    private int bmInjection;
+    private Integer bmInjection;
 
-    private int oralInjections;
+    private Integer oralInjections;
 
-    private int physiotherapy;
+    private Integer physiotherapy;
 
-    private int rearSclerectomy;
+    private Integer rearSclerectomy;
 
-    private int sinusothrabuculotomy;
+    private Integer sinusothrabuculotomy;
 
-    private int sinusotrabuculotomyWithBasaliridectomy;
+    private Integer sinusotrabuculotomyWithBasaliridectomy;
 
-    private int applicationOflaserTreatment;
+    private Integer applicationOfLaserTreatment;
 
-    private int iridectomy;
+    private Integer iridectomy;
 
-    private int trabeculotomy;
+    private Integer trabeculotomy;
 
-    private int cyclodegradation;
-
+    private Integer cyclodegradation;
 
     private String myoticsText;
 
@@ -80,7 +72,7 @@ public class Treatment {
 
     private String sinusotrabuculotomyWithBasaliridectomyText;
 
-    private String applicationOflaserTreatmentText;
+    private String applicationOfLaserTreatmentText;
 
     private String iridectomyText;
 
@@ -90,4 +82,9 @@ public class Treatment {
 
     private String infoTextArea;
 
+    @NonNull
+    @ManyToOne
+    @JsonManagedReference
+    @JoinColumn(name = "examination_id")
+    private Examination examination;
 }

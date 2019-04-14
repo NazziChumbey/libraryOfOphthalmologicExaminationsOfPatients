@@ -18,7 +18,7 @@ public class WorkersController {
     }
 
     @GetMapping(path = {"/{id}"})
-    public Workers findAll(@PathVariable("id") int id) {
+    public Workers findOne(@PathVariable("id") int id) {
         return workersService.findById(id);
     }
 

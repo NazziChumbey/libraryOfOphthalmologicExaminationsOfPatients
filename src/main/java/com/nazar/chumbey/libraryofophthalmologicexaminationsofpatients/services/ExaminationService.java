@@ -4,4 +4,5 @@ import com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model.Exa
 
 public interface ExaminationService extends GrudService<Examination, Integer> {
 
+    public Examination findById(Integer id);
 }

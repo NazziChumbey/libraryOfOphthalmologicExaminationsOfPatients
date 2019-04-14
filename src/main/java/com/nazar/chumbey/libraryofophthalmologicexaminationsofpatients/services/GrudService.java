@@ -2,15 +2,15 @@ package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.services
 
 import java.util.Set;
 
-public interface GrudService<T, ID>  {
+public interface GrudService<T, id>  {
 
     Set<T> findAll();
 
-    T findById(ID id);
+    T findById(id id);
 
     T save(T object);
 
     void delete(T object);
 
-    void deleteById(ID id);
+    void deleteById(id id);
 }

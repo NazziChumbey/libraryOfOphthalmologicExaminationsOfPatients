@@ -1,6 +1,7 @@
 package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,8 +11,7 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.Set;
 
-@Setter
-@Getter
+@Setter @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -20,14 +20,6 @@ public class Workers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @OneToMany(mappedBy = "worker", cascade = CascadeType.ALL)
-    @Column(nullable = false)
-    private Set<Examination> examinations;
-
-    @OneToMany(mappedBy = "worker", cascade = CascadeType.ALL)
-    @Column(nullable = false)
-    private Set<Patient> patients;
 
     @Column(nullable = false)
     private String name;
@@ -56,4 +48,11 @@ public class Workers {
     @Column(nullable = false)
     private String password;
 
+    @JsonBackReference
+    @OneToMany(mappedBy = "worker", cascade = CascadeType.ALL)
+    private Set<Examination> examinations;
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "worker", cascade = CascadeType.ALL)
+    private Set<Patient> patients;
 }

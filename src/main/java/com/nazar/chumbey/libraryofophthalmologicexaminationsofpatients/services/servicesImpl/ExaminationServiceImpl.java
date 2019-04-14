@@ -11,7 +11,6 @@ import java.util.Set;
 
 @Service
 public class ExaminationServiceImpl implements ExaminationService {
-
     private ExaminationRepositories examinationRepositories;
 
     public ExaminationServiceImpl(ExaminationRepositories examinationRepositories) {

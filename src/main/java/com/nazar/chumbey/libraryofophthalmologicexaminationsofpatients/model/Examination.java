@@ -1,17 +1,15 @@
 package com.nazar.chumbey.libraryofophthalmologicexaminationsofpatients.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Blob;
 import java.sql.Date;
 import java.util.Set;
 
-@Setter
-@Getter
+@Setter @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -21,22 +19,8 @@ public class Examination {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
-
-    @ManyToOne
-    @JoinColumn(name = "worker_id")
-    private Workers worker;
-
-    @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
-    @Column(nullable = false)
-    private Set<Treatment> treatments;
-
     @Column(nullable = false)
     private Date dateOfSurvey;
-
-    private String fosfenOd;
 
     private String fosfenOs;
 
@@ -228,4 +212,19 @@ public class Examination {
 
     private String formatFileFieldViewOu;
 
+    @NonNull
+    @ManyToOne
+    @JsonManagedReference
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
+    @NonNull
+    @ManyToOne
+    @JsonManagedReference
+    @JoinColumn(name = "worker_id")
+    private Workers worker;
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
+    private Set<Treatment> treatments;
 }
