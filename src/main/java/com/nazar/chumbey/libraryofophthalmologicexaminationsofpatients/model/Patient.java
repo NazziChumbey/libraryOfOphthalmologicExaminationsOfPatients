@@ -11,7 +11,7 @@ import java.util.Set;
 @Setter @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Entity(name = "Patient")
 public class Patient{
 
     @Id
@@ -24,7 +24,7 @@ public class Patient{
     @Column(nullable = false)
     private Date dateOfBirth;
 
-    private String additionalInfo;
+    private String additionalInformation;
 
     private int sex;
 
@@ -49,8 +49,8 @@ public class Patient{
     @NonNull
     @ManyToOne
     @JsonManagedReference
-    @JoinColumn(name="workers_id")
-    private Workers worker;
+    @JoinColumn(name="worker_id")
+    private Worker worker;
 
     @JsonBackReference
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)

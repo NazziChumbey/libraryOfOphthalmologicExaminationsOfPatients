@@ -222,7 +222,7 @@ public class Examination {
     @ManyToOne
     @JsonManagedReference
     @JoinColumn(name = "worker_id")
-    private Workers worker;
+    private Worker worker;
 
     @JsonBackReference
     @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)

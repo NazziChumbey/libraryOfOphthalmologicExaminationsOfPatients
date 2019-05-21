@@ -15,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Workers {
+public class Worker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,6 @@ public class Workers {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private Date dateOfBirth;
 
     private String institution;
